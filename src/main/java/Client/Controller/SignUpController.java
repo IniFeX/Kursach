@@ -113,7 +113,6 @@ public class SignUpController {
 
                 ClientSocket.getInstance().getOut().println((new Gson()).toJson(companies));
                 ClientSocket.getInstance().getOut().flush();
-                System.out.println("Send company");
                 String recId;
                 try {
                     recId = ClientSocket.getInstance().getInStream().readLine();
@@ -125,7 +124,6 @@ public class SignUpController {
 
                 ClientSocket.getInstance().getOut().println((new Gson()).toJson(userCheck));
                 ClientSocket.getInstance().getOut().flush();
-                System.out.println("Send user");
                 String count;
                 try {
                     count = ClientSocket.getInstance().getInStream().readLine();
@@ -136,7 +134,6 @@ public class SignUpController {
                 System.out.println("counter: " + counter);
                 String ch;
                 if(counter >= 1){
-                    System.out.println("FALSE");
                     errorText.setText("Логин уже занят");
                     Fade errorTextFade = new Fade(errorText);
                     errorTextFade.play();

@@ -34,14 +34,6 @@ public class TransactionUserController {
         this.user = user;
         this.nameCompany = name;
         System.out.println("company controller: " + user.getIdCompany());
-//        getInfo(user);
-//        System.out.println(this.user.getIdUser());
-//        System.out.println(this.user.getLogin());
-//        System.out.println(this.user.getGender());
-//        System.out.println(this.user.getRole());
-//        System.out.println(this.user.getIdCompany());
-//        System.out.println(this.user.getPassword());
-//
     }
 
     @FXML
@@ -110,18 +102,15 @@ public class TransactionUserController {
             addInfo();
         });
         Update.setOnAction(actionEvent -> {
-            System.out.println("РЕДАКТ НАЧАЛО");
             String idText = IdEditField.getText().trim();
             if(!idText.equals("")){
                 try {
                     updateInfo(idText);
-                    System.out.println("РЕДАКТ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("РЕДАКТ НЕ ВЫПОЛНЕН");
                 errorText.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText);
                 Fade errorTextFade = new Fade(errorText);
@@ -136,13 +125,11 @@ public class TransactionUserController {
             if(!idText.equals("")){
                 try {
                     deleteInfo(idText);
-                    System.out.println("УДАЛ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("УДАЛ НЕ ВЫПОЛНЕН");
                 errorText.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText);
                 Fade errorTextFade = new Fade(errorText);
@@ -181,7 +168,6 @@ public class TransactionUserController {
         } else {
             ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
             ClientSocket.getInstance().getOut().flush();
-            System.out.println("add ВАЩЕ НЕ ВЫПОЛНЕН");
 
             errorText.setText("Поля не должны быть пустыми");
             Shake Error = new Shake(errorText);
@@ -244,7 +230,6 @@ public class TransactionUserController {
             else {
                 ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
                 ClientSocket.getInstance().getOut().flush();
-                System.out.println("РЕДАКТ ВАЩЕ НЕ ВЫПОЛНЕН");
 
                 errorText.setText("Поля не должны быть пустыми");
                 Shake Error = new Shake(errorText);

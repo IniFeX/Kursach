@@ -162,12 +162,10 @@ public class UserAppController {
                     if (!login.equals("") && !password.equals("")) {
                         try {
                             editUser(login, password);
-                            System.out.println("УДАЛ ВЫПОЛНЕН");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
                     } else {
-                        System.out.println("УДАЛ НЕ ВЫПОЛНЕН");
 //                        errorText.setText("Поле не должно быть пустым");
 //                        Shake Error = new Shake(errorText);
 //                        Fade errorTextFade = new Fade(errorText);
@@ -281,7 +279,6 @@ public class UserAppController {
             else{
                 ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
                 ClientSocket.getInstance().getOut().flush();
-                System.out.println("РЕДАКТ ВАЩЕ НЕ ВЫПОЛНЕН");
 
 //                errorText1.setText("Поля не должны быть пустыми");
 //                Shake Error = new Shake(errorText1);

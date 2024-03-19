@@ -110,18 +110,15 @@ public class ImportExportController {
             addInfo();
         });
         Update.setOnAction(actionEvent -> {
-            System.out.println("РЕДАКТ НАЧАЛО");
             String idText = IdEditField.getText().trim();
             if(!idText.equals("")){
                 try {
                     updateInfo(idText);
-                    System.out.println("РЕДАКТ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("РЕДАКТ НЕ ВЫПОЛНЕН");
                 errorText.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText);
                 Fade errorTextFade = new Fade(errorText);
@@ -136,13 +133,11 @@ public class ImportExportController {
             if(!idText.equals("")){
                 try {
                     deleteInfo(idText);
-                    System.out.println("УДАЛ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("УДАЛ НЕ ВЫПОЛНЕН");
                 errorText.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText);
                 Fade errorTextFade = new Fade(errorText);
@@ -254,7 +249,6 @@ public class ImportExportController {
         String amount = AmountField.getText().trim();
         String date = DateField.getText().trim();
         String type = TypeField.getText().trim();
-//        IEClass ieClass = new IEClass(null,nameProduct, nameCompany, amount, date, type);
         request.setRequestType(RequestType.ADD_TRANSACTIONS);
         request.setRequestMessage((new Gson()).toJson("ieClass"));
         ClientSocket.getInstance().getOut().println((new Gson()).toJson(request));
@@ -270,7 +264,6 @@ public class ImportExportController {
         } else {
             ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
             ClientSocket.getInstance().getOut().flush();
-            System.out.println("add ВАЩЕ НЕ ВЫПОЛНЕН");
 
             errorText.setText("Поля не должны быть пустыми");
             Shake Error = new Shake(errorText);
@@ -291,8 +284,6 @@ public class ImportExportController {
 
     }
 
-    // ДОБАВИТЬ ПРОВЕРКИ НА ПОЛЯ РЕДАКТА
-    // ПРИДЙМА ЧТО-НИБУДЬ С УДАЛЕНИЕМ
     private void updateInfo(String idText) throws IOException {
         Request request = new Request();
         //String type = "UPDATE_TRANSACTIONS";
@@ -333,7 +324,6 @@ public class ImportExportController {
             else {
                 ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
                 ClientSocket.getInstance().getOut().flush();
-                System.out.println("РЕДАКТ ВАЩЕ НЕ ВЫПОЛНЕН");
 
                 errorText.setText("Поля не должны быть пустыми");
                 Shake Error = new Shake(errorText);
