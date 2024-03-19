@@ -144,18 +144,15 @@ public class CompanyAndProductController {
         });
 
         Update.setOnAction(actionEvent -> {
-            System.out.println("РЕДАКТ НАЧАЛО");
             String idText = IdEditField.getText().trim();
             if(!idText.equals("")){
                 try {
                     updateInfo(idText);
-                    System.out.println("РЕДАКТ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("РЕДАКТ НЕ ВЫПОЛНЕН");
                 errorText.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText);
                 Fade errorTextFade = new Fade(errorText);
@@ -165,18 +162,15 @@ public class CompanyAndProductController {
             }
         });
         Update1.setOnAction(actionEvent -> {
-            System.out.println("РЕДАКТ НАЧАЛО");
             String idText = IdEditField1.getText().trim();
             if(!idText.equals("")){
                 try {
                     updateInfoProduct(idText);
-                    System.out.println("РЕДАКТ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("РЕДАКТ НЕ ВЫПОЛНЕН");
                 errorText1.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText1);
                 Fade errorTextFade = new Fade(errorText1);
@@ -192,13 +186,11 @@ public class CompanyAndProductController {
             if(!idText.equals("")){
                 try {
                     deleteInfoCompany(idText);
-                    System.out.println("УДАЛ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("УДАЛ НЕ ВЫПОЛНЕН");
                 errorText.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText);
                 Fade errorTextFade = new Fade(errorText);
@@ -212,13 +204,11 @@ public class CompanyAndProductController {
             if(!idText.equals("")){
                 try {
                     deleteInfoProduct(idText);
-                    System.out.println("УДАЛ ВЫПОЛНЕН");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
-                System.out.println("УДАЛ НЕ ВЫПОЛНЕН");
                 errorText1.setText("Поле не должно быть пустым");
                 Shake Error = new Shake(errorText1);
                 Fade errorTextFade = new Fade(errorText1);
@@ -260,7 +250,6 @@ public class CompanyAndProductController {
             else{
                 ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
                 ClientSocket.getInstance().getOut().flush();
-                System.out.println("РЕДАКТ ВАЩЕ НЕ ВЫПОЛНЕН");
 
                 errorText1.setText("Поля не должны быть пустыми");
                 Shake Error = new Shake(errorText1);
@@ -298,7 +287,6 @@ public class CompanyAndProductController {
             else{
                 ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
                 ClientSocket.getInstance().getOut().flush();
-                System.out.println("РЕДАКТ ВАЩЕ НЕ ВЫПОЛНЕН");
 
                 errorText.setText("Поля не должны быть пустыми");
                 Shake Error = new Shake(errorText);
@@ -352,7 +340,6 @@ public class CompanyAndProductController {
         }else{
             ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
             ClientSocket.getInstance().getOut().flush();
-            System.out.println("add ВАЩЕ НЕ ВЫПОЛНЕН");
 
             errorText.setText("Поля не должны быть пустыми");
             Shake Error = new Shake(errorText);
@@ -384,7 +371,6 @@ public class CompanyAndProductController {
         }else{
             ClientSocket.getInstance().getOut().println((new Gson()).toJson("false"));
             ClientSocket.getInstance().getOut().flush();
-            System.out.println("add ВАЩЕ НЕ ВЫПОЛНЕН");
 
             errorText1.setText("Поля не должны быть пустыми");
             Shake Error = new Shake(errorText1);
